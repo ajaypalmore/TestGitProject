@@ -42,4 +42,16 @@ public class GetCallBDD {
 			and().
 			header("content-length", equalTo("4551"));
 	}
+	@Test
+	public void test_NumberofCircut_20173()
+	{
+		given().
+		when().
+			get("http://ergast.com/api/f1/2017/circuits.json").
+		then().
+			assertThat().
+			statusCode(200).and().body("MRData.CircuitTable.Circuits.circuitId",hasSize(20)).
+			and().
+			header("content-length", equalTo("4551"));
+	}
 }
